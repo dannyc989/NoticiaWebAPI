@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NoticiasAPI.Models;
 using NoticiasAPI.Services;
 
 namespace NoticiasAPI.Controllers
@@ -28,6 +29,19 @@ namespace NoticiasAPI.Controllers
 
         [HttpPost]
         [Route("agregar")]
-        public IActionResult Agregar([FromBody] _LL
+        public IActionResult Agregar([FromBody] Noticia _noticia)
+        {
+            var resultado = _noticiaService.AgregarNoticia(_noticia);
+            if (resultado==true)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+            //return Ok(resultado);
+        }
     }
 }
