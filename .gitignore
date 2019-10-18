@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/NoticiasAPI/v16/Server/sqlite3
+/NoticiasAPI/bin/Debug/netcoreapp2.1
+/NoticiasAPI/obj/Debug/netcoreapp2.1
+/NoticiasAPI/obj
