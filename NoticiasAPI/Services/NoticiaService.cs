@@ -38,8 +38,27 @@ namespace NoticiasAPI.Services
             }
             
         }
+               
+        public bool EditarNoticia(Noticia _noticia)
+        {
+            try
+            {
+                var NoticiaDB = this._noticiaDBContext.Noticia.Where(x => x.NoticiaID == _noticia.NoticiaID).FirstOrDefault();
+                NoticiaDB.Titulo = _noticia.Titulo;
+                NoticiaDB.Descripcion = _noticia.Descripcion;
+                NoticiaDB.Contenido = _noticia.Contenido;
+                NoticiaDB.Fecha = _noticia.Fecha;
+                NoticiaDB.AutorID = _noticia.AutorID;
 
+                this._noticiaDBContext.SaveChanges();
 
-
+                return true;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+                return false;
+            }
+        }
     }
 }

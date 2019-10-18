@@ -40,8 +40,22 @@ namespace NoticiasAPI.Controllers
             {
                 return BadRequest();
             }
-
-            //return Ok(resultado);
         }
+
+        [HttpPut]
+        [Route("editar")]
+        public IActionResult Editar([FromBody] Noticia _noticia)
+        {
+            var resultado = _noticiaService.EditarNoticia(_noticia);
+            if (resultado == true)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }
