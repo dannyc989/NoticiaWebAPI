@@ -60,5 +60,21 @@ namespace NoticiasAPI.Services
                 return false;
             }
         }
+
+        public bool eliminarNoticia(int noticiaID)
+        {
+            try
+            {
+                var noticiaEliminar = _noticiaDBContext.Noticia.FirstOrDefault(x => x.NoticiaID == noticiaID);
+                _noticiaDBContext.Noticia.Remove(noticiaEliminar);
+                _noticiaDBContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return true;
+                throw;
+            }
+        }
     }
 }

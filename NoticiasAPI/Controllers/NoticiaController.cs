@@ -57,5 +57,21 @@ namespace NoticiasAPI.Controllers
             }
         }
 
+
+        [Route("eliminar/{noticiaID}")]
+        public IActionResult Eliminar(int noticiaID)
+        {
+            var resultado = _noticiaService.eliminarNoticia(noticiaID);
+            if (resultado == true)
+            {
+                return Ok();
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }
